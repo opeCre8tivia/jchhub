@@ -22,4 +22,12 @@ The app uses amono repo approach where the frontend is in the "frontend" folder 
 
   [Check out the docs here](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/connect-your-database-typescript-postgresql)
 
-- [ ]
+- [ ] run `yarn run dev` to run the development server
+
+### Running the backend
+
+The backend is developed using React
+
+- [ ] cd into frontend folder and run `yarn install`
+
+- [ ] run `yarn run dev` to run the react app
