@@ -14,6 +14,7 @@ import { clearUserLoginState } from "./redux/features/user.slice"
 import CustomToast from "./components/CustomToast/CustomToast"
 import PasswordInput from "./components/PasswordInput/PasswordInput"
 import { _getUserByToken, _userLogin } from "./redux/actions"
+import { colors } from "./constants/colors"
 
 interface formDataType {
   email: string
@@ -70,7 +71,7 @@ const App = () => {
   })
 
   return (
-    <Row style={{ width: "100%", height: "90vh", background: "pink" }}>
+    <Row style={{ width: "100%", height: "100vh" }}>
       <Col xs={24} sm={24} md={8}></Col>
       <Col xs={24} sm={24} md={8}>
         {/* toast */}
@@ -106,8 +107,18 @@ const App = () => {
               >
                 <Spacer height={20} />
                 {/* add logo */}
-                <div style={{ width: "50px", height: "50px" }}></div>
-                <div>A D M I N L O G I N</div>
+                <div
+                  style={{
+                    width: "50px",
+                    height: "50px",
+                    fontSize: 20,
+                    fontWeight: 700,
+                    color: colors.primary
+                  }}
+                >
+                  JCH
+                </div>
+                <div>ADMIN LOGIN</div>
                 <Spacer height={25} />
 
                 <CustomTextInput

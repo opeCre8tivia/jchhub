@@ -2,7 +2,7 @@ import { AppDispatch } from "../store"
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 
-const API_URL = "" //TODO move to .env file
+const API_URL = "http://localhost:8080/api" //TODO move to .env file
 
 export const _userLogin = createAsyncThunk<
   any,
@@ -11,12 +11,18 @@ export const _userLogin = createAsyncThunk<
 >("login/user", async function (payload) {
   try {
     let { data } = await axios.post(`${API_URL}/login`, payload)
+
+    if (data.payload.isError) {
+      return {
+        isError: true,
+        message: data.payload.message
+      }
+    }
     return data
   } catch (error) {
-    console.log(error)
     return {
       isError: true,
-      msg: "Error ! try again"
+      message: "Error ! try again"
     }
   }
 })

@@ -47,7 +47,7 @@ export const userSlice = createSlice({
       state.loading = false
       state.isError = action.payload.isError
       state.isSuccess = !action.payload.isError
-      state.msg = action.payload.msg
+      state.msg = action.payload.message
       state.token = !action.payload.isError && action.payload.payload
       if (!action.payload.isError) {
         //store token in local storage
@@ -59,7 +59,7 @@ export const userSlice = createSlice({
       state.loading = false
       state.isError = action.payload.isError
       state.isSuccess = !action.payload.isError
-      state.msg = action.payload.msg
+      state.msg = action.payload.message
     })
 
     builder.addCase(_getUserByToken.pending, (state) => {
@@ -80,7 +80,7 @@ export const userSlice = createSlice({
       state.loading = false
       state.isError = action.payload.isError
       state.isSuccess = !action.payload.isError
-      state.msg = action.payload.msg
+      state.msg = action.payload.message
     })
   }
 })
