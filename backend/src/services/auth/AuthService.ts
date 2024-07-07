@@ -60,6 +60,7 @@ class AuthService {
         payload: newUser
       }
     } catch (error) {
+      console.log(error, "------->errrr")
       return {
         isError: true,
         statusCode: 400,
