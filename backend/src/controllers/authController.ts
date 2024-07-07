@@ -1,11 +1,14 @@
-import { Request, Response } from "express"
+import { NextFunction, Request, Response } from "express"
 import AuthService from "../services/auth/AuthService"
 
 class AuthController {
-  public loginUser = async (req: Request, res: Response) => {
+  public loginUser = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => {
     try {
-      const { email, password } = req.body
-      console.log(email, password)
+      const { email, password, dx } = req.body
 
       let response = await AuthService.LoginUser({
         email,
@@ -14,10 +17,7 @@ class AuthController {
 
       res.status(200).json(response)
     } catch (error) {
-      console.log(error)
-      res.status(400).json({
-        isError: true
-      })
+      return next(error)
     }
   }
 }

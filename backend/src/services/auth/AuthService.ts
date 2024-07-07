@@ -1,3 +1,4 @@
+import { NextFunction } from "express"
 import { UserType } from "../../types/types"
 
 interface FormDataType {
@@ -6,10 +7,7 @@ interface FormDataType {
 }
 
 class AuthService {
-  public static LoginUser = async ({
-    email,
-    password
-  }: FormDataType): Promise<UserType> => {
+  public static LoginUser = async ({ email, password }: FormDataType) => {
     try {
       return {
         id: "xclgr",
