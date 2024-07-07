@@ -4,6 +4,7 @@ import { PrismaClient } from "@prisma/client"
 import AuthRouter from "./routes/auth.routes"
 import errorHandler from "./middleware"
 import "dotenv/config"
+import CandidateRouter from "./routes/candidates.routes"
 
 const app = express()
 export const prisma = new PrismaClient()
@@ -25,6 +26,7 @@ app.get("/health", (req: Request, res: Response) => {
 })
 
 app.use("/api", AuthRouter)
+app.use("/api", CandidateRouter)
 
 const PORT = process.env.PORT || 8080
 app.listen(PORT, () => {
